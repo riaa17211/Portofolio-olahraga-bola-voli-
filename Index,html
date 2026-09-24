@@ -1,0 +1,192 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masria - Portofolio Bola Voli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset dan Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: #0d1117; color: #ffffff; overflow-x: hidden; }
+        span { color: #ff5722; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; text-align: center; }
+        h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        
+        /* Navigasi */
+        nav { display: flex; justify-content: space-around; align-items: center; min-height: 8vh; background-color: rgba(13, 17, 23, 0.95); position: fixed; width: 100%; z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.5); transition: 0.3s; }
+        .logo { color: white; text-transform: uppercase; letter-spacing: 2px; font-size: 20px; font-weight: 700; }
+        .nav-links { display: flex; justify-content: space-around; width: 40%; }
+        .nav-links li { list-style: none; }
+        .nav-links a { color: white; text-decoration: none; letter-spacing: 1px; font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: #ff5722; }
+        
+        /* Menu Burger untuk HP */
+        .burger { display: none; cursor: pointer; z-index: 20; }
+        .burger div { width: 25px; height: 3px; background-color: white; margin: 5px; transition: all 0.3s ease; }
+        
+        /* Hero Section */
+        .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(13,17,23,0.8), rgba(13,17,23,0.8)), url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=1920&q=80') center/cover; background-attachment: fixed; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero h3 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 400; color: #e0e0e0; }
+        .hero p { margin-bottom: 30px; font-size: 1.1rem; color: #ccc; max-width: 600px; }
+        .btn { padding: 12px 30px; background-color: #ff5722; color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: 0.3s; display: inline-block; }
+        .btn:hover { background-color: #e64a19; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4); }
+        
+        /* Tentang Saya */
+        .about { background-color: #161b22; }
+        .about-text p { font-size: 1.1rem; line-height: 1.8; color: #a3a3a3; margin-bottom: 15px; }
+        
+        /* Prestasi */
+        .subtitle { color: #a3a3a3; margin-bottom: 40px; }
+        .cards { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+        .card { background: #0d1117; padding: 30px; border-radius: 10px; flex: 1; min-width: 250px; transition: 0.3s; border: 1px solid #30363d; }
+        .card:hover { transform: translateY(-10px); border-color: #ff5722; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .icon { font-size: 3rem; margin-bottom: 15px; }
+        
+        /* Galeri */
+        .gallery { background-color: #0d1117; }
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        .image-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; transition: 0.3s; cursor: pointer; }
+        .image-grid img:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3); }
+        
+        /* Footer */
+        footer { text-align: center; padding: 25px; background-color: #161b22; color: #888; font-size: 0.9rem; border-top: 1px solid #30363d; }
+        
+        /* Responsive Mobile */
+        @media screen and (max-width: 768px) {
+            .nav-links { position: fixed; right: -100%; height: 100vh; top: 0; background-color: rgba(13,17,23,0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; width: 70%; transition: right 0.5s ease; }
+            .nav-links.nav-active { right: 0; }
+            .nav-links li { margin: 20px 0; }
+            .nav-links a { font-size: 1.2rem; }
+            .burger { display: block; }
+            
+            /* Animasi Burger */
+            .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .toggle .line2 { opacity: 0; }
+            .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+            
+            .hero h1 { font-size: 2.5rem; }
+            .hero h3 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">Masria<span>Voli</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang Saya</a></li>
+            <li><a href="#achievements">Prestasi</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Halo, Saya <span>Masria</span></h1>
+            <h3>Atlet Bola Voli dari Tolitoli</h3>
+            <p>Dedikasi, kerja keras, dan semangat juara di setiap pertandingan membawa saya terus melangkah maju.</p>
+            <a href="#achievements" class="btn">Lihat Prestasi</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Tentang <span>Saya</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Saya adalah atlet bola voli kebanggaan asal <strong>Tolitoli, Sulawesi Tengah</strong>. Memiliki kecintaan mendalam terhadap olahraga ini sejak usia dini, saya terus mengasah kemampuan passing, blocking, hingga strategi penyerangan di lapangan.</p>
+                    <p>Bagi saya, voli bukan sekadar olahraga, melainkan tentang kedisiplinan, kerja sama tim, dan mental juara yang pantang menyerah dalam menghadapi setiap lawan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2>Daftar <span>Prestasi</span></h2>
+            <p class="subtitle">Beberapa pencapaian kejuaraan yang sering saya raih</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="icon">🏆</div>
+                    <h3>Juara 1</h3>
+                    <p>Turnamen Bola Voli Antar Klub Tingkat Kabupaten</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🥇</div>
+                    <h3>Pemain Terbaik (MVP)</h3>
+                    <p>Kejuaraan Voli Daerah Tingkat Tolitoli</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🏅</div>
+                    <h3>Juara Index</h3>
+                    <p>Langganan Juara di Berbagai Turnamen Lokal dan Provinsi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Galeri <span>Aksi</span></h2>
+            <p class="subtitle">Momen-momen terbaik di lapangan (Silakan ganti dengan foto asli Anda nanti)</p>
+            <div class="image-grid">
+                <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=600&q=80" alt="Aksi Voli 1">
+                <img src="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=600&q=80" alt="Aksi Voli 2">
+                <img src="https://images.unsplash.com/photo-1544298621-8b9eb7a03004?auto=format&fit=crop&w=600&q=80" alt="Aksi Voli 3">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Masria | Portofolio Atlet Bola Voli Tolitoli.</p>
+    </footer>
+
+    <script>
+        // Logika untuk menu navigasi responsif (Hamburger Menu)
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                // Tampilkan menu
+                nav.classList.toggle('nav-active');
+                // Animasikan ikon burger
+                burger.classList.toggle('toggle');
+            });
+
+            // Tutup menu saat link diklik (khusus mode mobile)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('nav-active');
+                    burger.classList.remove('toggle');
+                });
+            });
+        }
+
+        // Efek Navbar transparan berubah warna saat di-scroll ke bawah
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = 'rgba(13, 17, 23, 1)'; // Warna solid
+            } else {
+                nav.style.backgroundColor = 'rgba(13, 17, 23, 0.95)'; // Sedikit transparan
+            }
+        });
+
+        // Jalankan fungsi
+        navSlide();
+    </script>
+</body>
+</html>
+```
